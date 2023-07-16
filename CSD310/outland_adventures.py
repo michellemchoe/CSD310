@@ -38,8 +38,8 @@ cursor.execute("SELECT * from clients")
 print("-- DISPLAYING clients RECORDS --")
 clients = cursor.fetchall()
 
-for client_id, first_name, last_name, past_trips in clients:
-  print(f"Client ID: {client_id}\nFirst Name: {first_name}\nLast Name: {last_name}\nPast Trips: {past_trips}\n".format(clients))
+for client_id, first_name, last_name, past_trips, own_equipment in clients:
+  print(f"Client ID: {client_id}\nFirst Name: {first_name}\nLast Name: {last_name}\nPast Trips: {past_trips}\nOwn Equipment: {own_equipment}\n".format(clients))
 
 
 # Query 2: select all the fields for the clients_attending_trip
@@ -49,8 +49,8 @@ cursor2.execute("SELECT * from clients_attending_trip")
 print("-- DISPLAYING clients_attending_trip RECORDS --")
 clients_attending_trip = cursor2.fetchall()
 
-for client_id, trip_id in clients_attending_trip:
-  print(f"Client ID: {client_id}\nTrip ID: {trip_id}\n".format(clients_attending_trip))
+for client_id, trip_id, equip_acquisition in clients_attending_trip:
+  print(f"Client ID: {client_id}\nTrip ID: {trip_id}\nEquipment Acquisition: {equip_acquisition}\n".format(clients_attending_trip))
 
 
 # Query 3: select all the fields for the country
@@ -64,15 +64,15 @@ for country_id, country_name, country_locale in country:
   print(f"Country ID: {country_id}\nCountry Name: {country_name}\nCountry Locale: {country_locale}\n".format(country))
 
 
-# Query 4: select all the fields for the equipment
+# Query 4: select all the fields for the rentals
 cursor4 = mydb.cursor()
-cursor4.execute("SELECT * from equipment")
+cursor4.execute("SELECT * from rentals")
 
-print("-- DISPLAYING equipment RECORDS --")
-equipment = cursor4.fetchall()
+print("-- DISPLAYING rental RECORDS --")
+rentals = cursor4.fetchall()
 
-for equipment_id, client_id, inventory_id, restock_date, equip_expired in equipment:
-  print(f"Equipment ID: {equipment_id}\nClient ID:  {client_id}\nInventory ID: {inventory_id}\nRestock Date: {restock_date}\nExpired: {equip_expired}\n".format(equipment))
+for rental_id, client_id, inventory_id, purchase_date, equip_expired in rentals:
+  print(f"Rental Equipment ID: {rental_id}\nClient ID:  {client_id}\nInventory ID: {inventory_id}\nPurchase Date: {purchase_date}\nExpired: {equip_expired}\n".format(rentals))
 
 
 # Query 5: select all the fields for the guides
