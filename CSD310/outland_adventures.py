@@ -61,7 +61,7 @@ print("-- DISPLAYING country RECORDS --")
 country = cursor3.fetchall()
 
 for country_id, country_name, country_locale in country:
-  print(f"Country ID: {country_id}\nCountry Name: {country_name}\nCountry Locale: {country_locale}".format(country))
+  print(f"Country ID: {country_id}\nCountry Name: {country_name}\nCountry Locale: {country_locale}\n".format(country))
 
 
 # Query 4: select all the fields for the equipment
@@ -104,5 +104,7 @@ cursor7.execute("SELECT * from trips")
 print("-- DISPLAYING trips RECORDS --")
 trips = cursor7.fetchall()
 
-for trip_id, guide_id, country_id, trip_name, trip_date, client_count in trips:
-  print(f"Trip ID: {trip_id}\nGuide ID: {guide_id}\nCountry ID: {country_id}\nTrip Name: {trip_name}\nTrip Date: {trip_date}\nClient Count: {client_count}\n".format(trips))
+for trip_id, guide_id, country_id, trip_name, trip_date in trips:
+  print(f"Trip ID: {trip_id}\nGuide ID: {guide_id}\nCountry ID: {country_id}\nTrip Name: {trip_name}\nTrip Date: {trip_date}\n".format(trips))
+  
+  
